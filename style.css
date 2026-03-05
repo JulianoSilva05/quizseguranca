@@ -26,8 +26,10 @@ body {
 
 .container {
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     background-color: transparent;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -56,6 +58,73 @@ header p {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     font-weight: bold;
     color: var(--primary-color);
+    font-size: 1rem;
+}
+
+/* Área principal */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-content: start;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.menu-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.menu-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.menu-card p {
+    font-size: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Cards Gerais (Detetive, etc) */
+.card-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .card {
@@ -63,13 +132,13 @@ header p {
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
     border: 4px solid transparent;
     transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 300px;
+    justify-content: space-between;
 }
 
 .card-header {
@@ -88,6 +157,11 @@ header p {
     border-radius: 50%;
 }
 
+.card-body {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
 .card-body p {
     font-size: 1.3rem;
     line-height: 1.6;
@@ -97,6 +171,7 @@ header p {
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -112,7 +187,7 @@ header p {
 }
 
 .btn:active {
-    transform: translateY(5px);
+    transform: translateY(3px);
     box-shadow: none;
 }
 
@@ -127,13 +202,37 @@ header p {
 }
 
 .feedback {
-    margin-top: 30px;
-    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    margin: 0;
     padding: 20px;
-    border-radius: 15px;
+    border: none;
+    border-radius: 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.feedback-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    animation: slideUp 0.5s ease;
     border: 3px solid var(--primary-color);
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .feedback.hidden {
@@ -141,75 +240,51 @@ header p {
 }
 
 .feedback h3 {
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-size: 1.5rem;
 }
 
 .feedback p {
     font-size: 1.1rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .btn-next {
     background-color: var(--primary-color);
     color: white;
-    width: 100%;
+    width: auto;
+    min-width: 200px;
+    align-self: center;
+    margin-top: 10px;
 }
 
-@keyframes slideUp {
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp { /* Mantendo por compatibilidade se algo ainda usar */
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilos para o Menu Principal */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.menu-card {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    color: var(--text-color);
-    border: 3px solid transparent;
-}
-
-.menu-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    border-color: var(--primary-color);
-}
-
-.menu-icon {
-    font-size: 4rem;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.menu-card h2 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-/* Estilos Específicos para o Guardião da Senha */
+/* Guardião da Senha */
 .fortress-container {
     text-align: center;
     margin-bottom: 30px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
 }
 
 .fortress {
     background: white;
     padding: 40px;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -298,12 +373,17 @@ header p {
     color: white;
     padding: 10px 20px;
     font-size: 1rem;
+    margin-top: 15px !important;
+    margin-bottom: 20px; /* Adicionado margem inferior para evitar sobreposição */
+    display: inline-block;
 }
 
-/* Estilos para RPG (Pare, Olhe, Poste) */
+/* RPG (Pare, Olhe, Poste) */
 .rpg-container {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .scene-card {
@@ -311,8 +391,13 @@ header p {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    margin-bottom: 0;
     text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
 }
 
 .scene-icon {
@@ -339,6 +424,7 @@ header p {
     transition: all 0.2s;
     font-size: 1.1rem;
     padding: 20px;
+    border-radius: 15px;
 }
 
 .btn-option:hover {
@@ -348,27 +434,50 @@ header p {
 }
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
+    margin-top: 20px;
+    background: transparent;
+    padding: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 1000;
+    position: static; /* Remove posição fixa */
+    height: auto;
+    display: block; /* Ou flex, dependendo do layout */
+    z-index: 1;
+}
+
+.modal.hidden {
+    display: none;
 }
 
 .modal-content {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
-    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    animation: slideUp 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 3px solid var(--primary-color);
+}
+
+.modal-content h2 {
+    margin-bottom: 0;
+    color: var(--primary-color);
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.modal-content .btn-next {
+    margin-top: auto;
+    align-self: center;
+    width: auto;
+    min-width: 200px;
 }
 
 @keyframes popIn {
@@ -376,11 +485,12 @@ header p {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Estilos para Perfil (Quem é Quem) */
+/* Perfil (Quem é Quem) */
 .profile-card-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    flex: 1;
 }
 
 .profile-card {
@@ -390,11 +500,13 @@ header p {
     width: 100%;
     max-width: 400px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 30px 20px;
+    padding: 30px;
     text-align: center;
     color: white;
 }
@@ -423,6 +535,10 @@ header p {
 
 .profile-details {
     padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profile-details p {
@@ -430,10 +546,57 @@ header p {
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
+    font-size: 1rem;
 }
 
 .profile-details p:last-child {
     border-bottom: none;
     display: block;
     margin-top: 10px;
+}
+
+/* Media Queries para Mobile */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fortress {
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+    }
+    
+    .fortress-emoji {
+        font-size: 3rem;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 3rem;
+    }
+    
+    .card, .scene-card, .profile-header {
+        padding: 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

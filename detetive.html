@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detetive Digital: Descubra o que é seguro e o que é golpe na internet neste jogo educativo.">
+    <link rel="icon" type="image/avif" href="icon.avif">
     <title>Detetive Digital - 5º Ano</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
@@ -16,6 +18,7 @@
                 <span>Pontos: <span id="score">0</span></span>
                 <span>Nível: <span id="level">Iniciante</span></span>
             </div>
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary" style="margin-top: 10px;">🏠 Voltar ao Menu</button>
         </header>
 
         <main id="game-area">
@@ -38,9 +41,11 @@
             </div>
 
             <div id="feedback" class="feedback hidden">
-                <h3 id="feedback-title"></h3>
-                <p id="feedback-message"></p>
-                <button id="btn-next" class="btn btn-next">Próxima Missão ➡️</button>
+                <div class="feedback-content">
+                    <h3 id="feedback-title"></h3>
+                    <p id="feedback-message"></p>
+                    <button id="btn-next" class="btn btn-next">Próxima Missão ➡️</button>
+                </div>
             </div>
         </main>
     </div>
