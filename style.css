@@ -1,0 +1,439 @@
+:root {
+    --primary-color: #6C5CE7;
+    --secondary-color: #00CEC9;
+    --success-color: #00B894;
+    --danger-color: #FF7675;
+    --background-color: #DFE6E9;
+    --card-bg: #FFFFFF;
+    --text-color: #2D3436;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: transparent;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.score-board {
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    border: 4px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.icon {
+    font-size: 2.5rem;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.card-body p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+.btn-trust {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-suspect {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.feedback {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideUp 0.5s ease;
+    border: 3px solid var(--primary-color);
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+.feedback h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.feedback p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.btn-next {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para o Menu Principal */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.menu-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: var(--text-color);
+    border: 3px solid transparent;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.menu-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.menu-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Estilos Específicos para o Guardião da Senha */
+.fortress-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.fortress {
+    background: white;
+    padding: 40px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #dfe6e9;
+    transition: all 0.5s ease;
+}
+
+.fortress-emoji {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+/* Níveis da Fortaleza */
+.fortress.level-0 { border-color: var(--danger-color); background-color: #ffeaa7; }
+.fortress.level-1 { border-color: #fdcb6e; background-color: #fff; }
+.fortress.level-2 { border-color: #0984e3; background-color: #e3f2fd; }
+.fortress.level-3 { border-color: #6c5ce7; background-color: #ede7f6; }
+.fortress.level-4 { border-color: var(--success-color); background-color: #e8f5e9; box-shadow: 0 0 30px var(--success-color); }
+
+.input-area {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-area input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5rem;
+    border: 2px solid #dfe6e9;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-family: monospace;
+    text-align: center;
+}
+
+.input-area input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.feedback-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.feedback-panel ul {
+    list-style: none;
+    text-align: left;
+    margin: 15px 0;
+}
+
+.feedback-panel li {
+    margin-bottom: 8px;
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.feedback-panel li.valid {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.strength-meter {
+    height: 10px;
+    background: #dfe6e9;
+    border-radius: 5px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--danger-color);
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.btn-secondary {
+    background-color: #b2bec3;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+/* Estilos para RPG (Pare, Olhe, Poste) */
+.rpg-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scene-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.scene-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    background: #f0f0f0;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.options-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.btn-option {
+    background: white;
+    color: var(--text-color);
+    border: 3px solid #dfe6e9;
+    text-align: left;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    padding: 20px;
+}
+
+.btn-option:hover {
+    border-color: var(--primary-color);
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos para Perfil (Quem é Quem) */
+.profile-card-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 30px 20px;
+    text-align: center;
+    color: white;
+}
+
+.avatar {
+    font-size: 5rem;
+    background: white;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.profile-info h2 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.profile-info p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.profile-details {
+    padding: 20px;
+}
+
+.profile-details p {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-details p:last-child {
+    border-bottom: none;
+    display: block;
+    margin-top: 10px;
+}

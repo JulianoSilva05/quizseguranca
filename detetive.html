@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detetive Digital - 5º Ano</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕵️ Detetive Digital</h1>
+            <p>Sua missão: Identificar o que é seguro e o que é perigoso na internet!</p>
+            <div class="score-board">
+                <span>Pontos: <span id="score">0</span></span>
+                <span>Nível: <span id="level">Iniciante</span></span>
+            </div>
+        </header>
+
+        <main id="game-area">
+            <div class="card-container">
+                <div class="card" id="current-card">
+                    <!-- O conteúdo do cenário será inserido aqui pelo JS -->
+                    <div class="card-header">
+                        <span class="icon">📱</span>
+                        <h2 id="card-title">Título do Post</h2>
+                    </div>
+                    <div class="card-body">
+                        <p id="card-content">Carregando missão...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="btn-trust" class="btn btn-trust">✅ É Confiável</button>
+                <button id="btn-suspect" class="btn btn-suspect">⚠️ É Suspeito</button>
+            </div>
+
+            <div id="feedback" class="feedback hidden">
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-message"></p>
+                <button id="btn-next" class="btn btn-next">Próxima Missão ➡️</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

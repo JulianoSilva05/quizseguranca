@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem é Quem? - Identidade Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 Quem é Quem?</h1>
+            <p>Analise o perfil e descubra: É uma pessoa Real ou um Bot/Fake?</p>
+            <div class="score-board">
+                <span>Acertos: <span id="score">0</span></span>
+            </div>
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary" style="margin-top: 10px;">🏠 Voltar ao Menu</button>
+        </header>
+
+        <main id="game-area">
+            <div class="profile-card-container">
+                <div class="profile-card" id="profile-card">
+                    <div class="profile-header">
+                        <div class="avatar" id="avatar">👤</div>
+                        <div class="profile-info">
+                            <h2 id="username">@usuario_teste</h2>
+                            <p id="bio">Bio do usuário...</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <p><strong>Amigos:</strong> <span id="friends-count">120</span></p>
+                        <p><strong>Entrou em:</strong> <span id="join-date">2020</span></p>
+                        <p><strong>Último Post:</strong> "<span id="last-post">Olá mundo!</span>"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="btn-real" class="btn btn-trust">👤 Pessoa Real</button>
+                <button id="btn-fake" class="btn btn-suspect">🤖 Bot / Fake</button>
+            </div>
+
+            <div id="feedback" class="feedback hidden">
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-message"></p>
+                <button id="btn-next" class="btn btn-next">Próximo Perfil ➡️</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="perfil.js"></script>
+</body>
+</html>

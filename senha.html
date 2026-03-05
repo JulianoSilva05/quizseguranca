@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Guardião da Senha</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ O Guardião da Senha</h1>
+            <p>Construa a fortaleza mais segura do mundo usando uma senha poderosa!</p>
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary" style="margin-top: 10px;">🏠 Voltar ao Menu</button>
+        </header>
+
+        <main id="game-area">
+            <div class="fortress-container">
+                <div id="fortress-visual" class="fortress level-0">
+                    <span class="fortress-emoji">🏚️</span>
+                    <h2 id="fortress-name">Barraco de Palha</h2>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <label for="password-input">Digite sua Senha Secreta:</label>
+                <input type="text" id="password-input" placeholder="Digite aqui..." autocomplete="off">
+                <p class="hint">Dica: Use letras, números e símbolos!</p>
+            </div>
+
+            <div id="feedback-panel" class="feedback-panel">
+                <h3>Análise de Segurança:</h3>
+                <ul id="security-checklist">
+                    <li id="check-length">❌ Pelo menos 8 caracteres</li>
+                    <li id="check-number">❌ Pelo menos 1 número</li>
+                    <li id="check-symbol">❌ Pelo menos 1 símbolo special (!@#$)</li>
+                    <li id="check-upper">❌ Pelo menos 1 letra MAIÚSCULA</li>
+                </ul>
+                <div class="strength-meter">
+                    <div id="strength-bar" class="strength-bar" style="width: 0%"></div>
+                </div>
+                <p id="final-verdict">Sua fortaleza é muito frágil!</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="senha.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pare, Olhe, Poste</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚦 Pare, Olhe, Poste</h1>
+            <p>Faça escolhas inteligentes e veja como elas afetam seu Futuro Digital!</p>
+            <div class="score-board">
+                <span>Reputação: <span id="reputation">100</span>%</span>
+            </div>
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary" style="margin-top: 10px;">🏠 Voltar ao Menu</button>
+        </header>
+
+        <main id="game-area" class="rpg-container">
+            <div class="scene-card">
+                <div class="scene-icon" id="scene-icon">📸</div>
+                <h2 id="scene-title">Situação 1</h2>
+                <p id="scene-description">Carregando...</p>
+            </div>
+
+            <div class="options-grid" id="options-container">
+                <!-- Opções serão geradas aqui -->
+            </div>
+
+            <div id="consequence-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="modal-title">Resultado</h2>
+                    <p id="modal-message">Mensagem de consequência</p>
+                    <button id="btn-next-scene" class="btn btn-next">Continuar ➡️</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="rpg.js"></script>
+</body>
+</html>
